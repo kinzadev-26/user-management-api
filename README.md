@@ -121,21 +121,91 @@ src/
 ├── main.ts
 └── seeder.ts
 ```
+---
 
-## Postman Collection
+## API Endpoints Overview
+AUTH ENDPOINTS
+─────────────────────────────────────────────────────
+POST   /api/auth/register        Public
+POST   /api/auth/login           Public
+POST   /api/auth/logout          Private (token required)
+GET    /api/auth/me              Private (token required)
+POST   /api/auth/refresh-token   Public
 
-Import the collection into Postman:
+USER ENDPOINTS
+─────────────────────────────────────────────────────
+GET    /api/users                Private (admin only)
+GET    /api/users/profile        Private (any logged in user)
+GET    /api/users/:id            Private (admin or own profile)
+PUT    /api/users/:id            Private (admin or own profile)
+DELETE /api/users/:id            Private (admin only)
+PATCH  /api/users/:id/status     Private (admin only)
+---
 
-1. Open Postman
-2. Click **Import**
-3. Select `NestJS user managemant.postman_collection.json`
-4. Also import `NestJS user managemant.postman_environment.json`
-5. Select the environment from top-right dropdown
-6. Run **Login - Admin** first to auto-save the token
-7. All other requests will use the token automatically
 
+## Postman API Documentation
+
+### Setup Postman Environment
+
+Create a new environment in Postman named `NestJS User Management API` with these variables:
+
+| Variable       | Initial Value                  |
+|----------------|-------------------------------|
+| base_url       | http://localhost:5000/api     |
+| access_token   | (empty - auto filled)         |
+| refresh_token  | (empty - auto filled)         |
+| admin_token    | (empty - auto filled)         |
+| user_id        | (empty - auto filled)         |
 
 ---
+
+### AUTH REQUESTS
+
+---
+
+#### 1. Register User
+Method:   POST
+URL:      {{base_url}}/auth/register
+Access:   Public
+
+**Headers:**
+Content-Type: application/json
+
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "user"
+}
+```
+#### 2. Register Admin
+Method:   POST
+URL:      {{base_url}}/auth/register
+Access:   Public
+
+**Request Body:**
+```json
+{
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "password": "admin123",
+  "role": "admin"
+}
+```
+#### 3. Login — Admin
+Method:   POST
+URL:      {{base_url}}/auth/login
+Access:   Public
+
+**Request Body:**
+```json
+{
+  "email": "superadmin@example.com",
+  "password": "admin123"
+}
+```
 
 ## Author
 
