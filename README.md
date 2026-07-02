@@ -123,25 +123,6 @@ src/
 ```
 ---
 
-## API Endpoints Overview
-AUTH ENDPOINTS
-─────────────────────────────────────────────────────
-POST   /api/auth/register        Public
-POST   /api/auth/login           Public
-POST   /api/auth/logout          Private (token required)
-GET    /api/auth/me              Private (token required)
-POST   /api/auth/refresh-token   Public
-
-USER ENDPOINTS
-─────────────────────────────────────────────────────
-GET    /api/users                Private (admin only)
-GET    /api/users/profile        Private (any logged in user)
-GET    /api/users/:id            Private (admin or own profile)
-PUT    /api/users/:id            Private (admin or own profile)
-DELETE /api/users/:id            Private (admin only)
-PATCH  /api/users/:id/status     Private (admin only)
----
-
 
 ## Postman API Documentation
 
