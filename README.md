@@ -121,72 +121,14 @@ src/
 ├── main.ts
 └── seeder.ts
 ```
----
 
 
-## Postman API Documentation
+## Live Demo
 
-### Setup Postman Environment
+API is deployed at: https://user-management-api-kinza.vercel.app
 
-Create a new environment in Postman named `NestJS User Management API` with these variables:
-
-| Variable       | Initial Value                  |
-|----------------|-------------------------------|
-| base_url       | http://localhost:5000/api     |
-| access_token   | (empty - auto filled)         |
-| refresh_token  | (empty - auto filled)         |
-| admin_token    | (empty - auto filled)         |
-| user_id        | (empty - auto filled)         |
-
----
-
-### AUTH REQUESTS
-
----
-
-#### 1. Register User
-Method:   POST
-URL:      {{base_url}}/auth/register
-Access:   Public
-
-**Headers:**
-Content-Type: application/json
-
-**Request Body:**
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "role": "user"
-}
-```
-#### 2. Register Admin
-Method:   POST
-URL:      {{base_url}}/auth/register
-Access:   Public
-
-**Request Body:**
-```json
-{
-  "name": "Admin User",
-  "email": "admin@example.com",
-  "password": "admin123",
-  "role": "admin"
-}
-```
-#### 3. Login — Admin
-Method:   POST
-URL:      {{base_url}}/auth/login
-Access:   Public
-
-**Request Body:**
-```json
-{
-  "email": "superadmin@example.com",
-  "password": "admin123"
-}
-```
+Base URL for Postman:
+https://user-management-api-kinza.vercel.app/api
 
 ## Author
 
